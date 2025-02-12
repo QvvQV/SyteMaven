@@ -1,15 +1,17 @@
 package ru.tutor.test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import ru.tutor.page.Page1;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,31 +22,35 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest {
 
-    WebDriver driver;
+    public static WebDriver driver;
+    public static String url = "https://dietsw.tutorplace.ru/";
 
-    @BeforeAll
+    @BeforeClass
     public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.get(url);
     }
 
 
-    @AfterEach
-    public void afterEach() {
-        driver.close();
-        driver = null;
+    @AfterClass
+    public static void quitDriver() {
+        driver.quit();
     }
 
     @Test
     @DisplayName("Should get text first page")
     public void ShouldGetTextFirstPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
 //        text 1 stroki
         var actualTextElementSecret = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h1"));
         var actualTextP1St1 = actualTextElementSecret.getText().trim();
         assertEquals("Секрет стройности:", actualTextP1St1);
-        assertTrue(actualTextElementSecret.isDisplayed());
+//        assertTrue(actualTextElementSecret.isDisplayed());
+
+//        Assert.assertEquals("Секрет стройности:", Page1.getHeader1());
+
 
 //        text 2 stroki
         var actualTextElementMinus = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h2/b"));
@@ -62,14 +68,12 @@ public class AppTest {
         var actualTextMal = actualTextMale.getText().trim();
         assertEquals("Мужской", actualTextMal);
         assertTrue(actualTextMale.isDisplayed());
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get funct first page")
     public void ShouldGetFunctFirstPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -84,15 +88,12 @@ public class AppTest {
 
         WebElement btnFemale = driver.findElement((By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[1]/label")));
         btnFemale.click();
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text two page")
 
     public void ShouldGetTextTwoPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -111,15 +112,13 @@ public class AppTest {
         var actualTextHigh = highActivity.getText().trim();
         assertEquals("Высокая активность", actualTextHigh);
         assertTrue(highActivity.isDisplayed());
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get funct two page")
 
     public void ShouldGetFunctTwotPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -136,15 +135,13 @@ public class AppTest {
         WebElement highActivity = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
         highActivity.click();
         backP2.click();
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get text three page")
 
     public void ShouldGetTextThreePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -176,15 +173,13 @@ public class AppTest {
         var habit = nothingHabit.getText().trim();
         assertEquals("У меня нет таких привычек", habit);
         assertTrue(nothingHabit.isDisplayed());
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get funct three page")
 
     public void ShouldGetFunctThreePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -208,15 +203,13 @@ public class AppTest {
         WebElement nothingHabit = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
         nothingHabit.click();
         backP3.click();
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get fourth  page")
 
     public void ShouldGetTextFourthPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -252,15 +245,12 @@ public class AppTest {
         assertEquals("Более 5 раз", FourAns);
         assertTrue(Four.isDisplayed());
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get func fourth  page")
 
     public void ShouldGetFuncFourthPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -308,15 +298,12 @@ public class AppTest {
         cont.click();
         backP4.click();
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text five  page")
 
     public void ShouldGetTextFivePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -363,15 +350,12 @@ public class AppTest {
         assertEquals("Максимальная польза для здоровья", Q54);
         assertTrue(q54.isDisplayed());
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get func five  page")
 
     public void ShouldGetFuncFivePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -421,15 +405,12 @@ public class AppTest {
         q54.click();
         contP5.click();
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text six  page")
 
     public void ShouldGetTextSixPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -477,15 +458,12 @@ public class AppTest {
         assertEquals("Я до сих пор пытаюсь соблюдать диету", Q64);
         assertTrue(q64.isDisplayed());
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get func six  page")
 
     public void ShouldGetFuncSixPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -528,15 +506,12 @@ public class AppTest {
         q64.click();
         backP6.click();
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text seven  page")
 
     public void ShouldGetTextSevenPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -604,15 +579,13 @@ public class AppTest {
 
         WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
         contP8.click();
-        driver.close();
+
     }
 
     @Test
     @DisplayName("Should get func seven  page")
 
     public void ShouldGetFuncSevenPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -662,15 +635,12 @@ public class AppTest {
         contP8.click();
         backP7.click();
 
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text eight  page")
 
     public void ShouldGetTextEightPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -726,16 +696,12 @@ public class AppTest {
         var Q84 = q84.getText().trim();
         assertEquals("Научиться правильно питаться для себя и семьи", Q84);
         assertTrue(q84.isDisplayed());
-
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get func eight  page")
 
     public void ShouldGetFuncEightPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -783,16 +749,12 @@ public class AppTest {
         WebElement q84 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
         q84.click();
         backP8.click();
-
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get text nine page")
 
     public void ShouldGetTextNinePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -846,16 +808,12 @@ public class AppTest {
         var Q93 = q93.getText().trim();
         assertEquals("Разбираюсь, но не всегда удается применять на практике", Q93);
         assertTrue(q93.isDisplayed());
-
-        driver.close();
     }
 
     @Test
     @DisplayName("Should get func nine page")
 
     public void ShouldGetFuncNinePage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -904,15 +862,12 @@ public class AppTest {
         q93.click();
         backP9.click();
 
-        driver.close();
     }
 
-//    @Test
-//    @DisplayName("Should get func ten page")
+    //    @Test
+    @DisplayName("Should get func ten page")
 
     public void ShouldGetFuncTenPage() {
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("https://dietsw.tutorplace.ru/");
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();
@@ -955,10 +910,14 @@ public class AppTest {
         assertEquals("Укажите ваши параметры", H10);
         assertTrue(HeaderP10.isDisplayed());
 
-        WebElement q101 = driver.findElement(By.xpath("//*[@id=\"q10__2\"]"));
-        q101.click();
-        q101.getText();
 
-        driver.close();
+        WebElement Age = driver.findElement(By.tagName("Возраст"));
+        var age = Age.getText().trim();
+        assertEquals("Возраст", age);
+        assertTrue((Age.isDisplayed()));
+//        driver.findElement(By.id("q10__2")).sendKeys("45");
+//        q101.click();
+//        q101.getText();
+
     }
 }

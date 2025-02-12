@@ -55,8 +55,10 @@ public class AppTest {
     @DisplayName("Should get func first page")
     public void ShouldGetFuncFirstPage() {
 
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
+//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
+//        btnMale.click();
+
+        Page1.clickFemale();
 
         var actualTextElement = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/h2"));
         var actualText = actualTextElement.getText().trim();
@@ -66,8 +68,8 @@ public class AppTest {
         WebElement backP1 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[3]/button"));
         backP1.click();
 
-        WebElement btnFemale = driver.findElement((By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[1]/label")));
-        btnFemale.click();
+        Page1.clickMale();
+
     }
 
     @Test

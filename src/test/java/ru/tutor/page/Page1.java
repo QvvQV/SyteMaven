@@ -67,9 +67,19 @@ public class Page1 extends Driver {
         return "Женский";
     }
 
+    public static Object clickFemale() {
+        female.click();
+        return female;
+    }
+
     public static Object getMale() {
         male.getText().trim();
         return "Мужской";
+    }
+
+    public static Object clickMale() {
+        male.click();
+        return male;
     }
 
 }

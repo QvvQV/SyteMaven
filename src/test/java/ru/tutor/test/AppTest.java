@@ -1,10 +1,7 @@
 package ru.tutor.test;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
+import org.junit.*;
 import ru.tutor.page.Page1;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,18 +22,19 @@ public class AppTest {
     public static WebDriver driver;
     public static String url = "https://dietsw.tutorplace.ru/";
 
-    @BeforeClass
-    public static void setupAll() {
+    @Before
+    public void setupAll() {
 //        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        Page1 Page1 = new Page1(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get(url);
     }
 
 
-    @AfterClass
-    public static void quitDriver() {
-        driver.quit();
+    @After
+    public void quitDriver() {
+        driver.close();
     }
 
     @Test
@@ -44,19 +42,20 @@ public class AppTest {
     public void ShouldGetTextFirstPage() {
 
 //        text 1 stroki
-        var actualTextElementSecret = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h1"));
-        var actualTextP1St1 = actualTextElementSecret.getText().trim();
-        assertEquals("Секрет стройности:", actualTextP1St1);
+//        var actualTextElementSecret = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h1"));
+//        var actualTextP1St1 = actualTextElementSecret.getText().trim();
+//        assertEquals("Секрет стройности:", actualTextP1St1);
 //        assertTrue(actualTextElementSecret.isDisplayed());
 
-//        Assert.assertEquals("Секрет стройности:", Page1.getHeader1());
+        Assert.assertEquals("Секрет стройности:", Page1.getHeader1());
+        Assert.assertEquals("минус 2 размера",Page1.getMinus());
 
 
 //        text 2 stroki
-        var actualTextElementMinus = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h2/b"));
-        var actualTextP1St2 = actualTextElementMinus.getText().trim();
-        assertEquals("минус 2 размера", actualTextP1St2);
-        assertTrue(actualTextElementMinus.isDisplayed());
+//        var actualTextElementMinus = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h2/b"));
+//        var actualTextP1St2 = actualTextElementMinus.getText().trim();
+//        assertEquals("минус 2 размера", actualTextP1St2);
+//        assertTrue(actualTextElementMinus.isDisplayed());
 
         //        text women
         var actualTextFemale = driver.findElement((By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[1]/label")));
@@ -69,11 +68,13 @@ public class AppTest {
         assertEquals("Мужской", actualTextMal);
         assertTrue(actualTextMale.isDisplayed());
 
+
+
     }
 
     @Test
-    @DisplayName("Should get funct first page")
-    public void ShouldGetFunctFirstPage() {
+    @DisplayName("Should get func first page")
+    public void ShouldGetFuncFirstPage() {
 
         WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
         btnMale.click();

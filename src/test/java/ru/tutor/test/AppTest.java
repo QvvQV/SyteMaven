@@ -41,34 +41,13 @@ public class AppTest {
     @DisplayName("Should get text first page")
     public void ShouldGetTextFirstPage() {
 
-//        text 1 stroki
-//        var actualTextElementSecret = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h1"));
-//        var actualTextP1St1 = actualTextElementSecret.getText().trim();
-//        assertEquals("Секрет стройности:", actualTextP1St1);
-//        assertTrue(actualTextElementSecret.isDisplayed());
-
         Assert.assertEquals("Секрет стройности:", Page1.getHeader1());
         Assert.assertEquals("минус 2 размера",Page1.getMinus());
-
-
-//        text 2 stroki
-//        var actualTextElementMinus = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[1]/h2/b"));
-//        var actualTextP1St2 = actualTextElementMinus.getText().trim();
-//        assertEquals("минус 2 размера", actualTextP1St2);
-//        assertTrue(actualTextElementMinus.isDisplayed());
-
-        //        text women
-        var actualTextFemale = driver.findElement((By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[1]/label")));
-        var actualTextFem = actualTextFemale.getText().trim();
-        assertEquals("Женский", actualTextFem);
-        assertTrue(actualTextFemale.isDisplayed());
-//        text men
-        var actualTextMale = driver.findElement((By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label")));
-        var actualTextMal = actualTextMale.getText().trim();
-        assertEquals("Мужской", actualTextMal);
-        assertTrue(actualTextMale.isDisplayed());
-
-
+        Assert.assertEquals("за месяц",Page1.getMonth());
+        Assert.assertEquals("Пройдите тест и получите персональные",Page1.getPerson());
+        Assert.assertEquals("рационы питания для похудения",Page1.getRazion());
+        Assert.assertEquals("Женский",Page1.getFemale());
+        Assert.assertEquals("Мужской",Page1.getMale());
 
     }
 

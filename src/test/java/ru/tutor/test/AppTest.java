@@ -28,7 +28,6 @@ public class AppTest {
 
     @Before
     public void setupAll() {
-//        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         Page1 Page1 = new Page1(driver);
         Page2 Page2 = new Page2(driver);
@@ -36,6 +35,10 @@ public class AppTest {
         Page4 Page4 = new Page4(driver);
         Page5 Page5 = new Page5(driver);
         Page6 Page6 = new Page6(driver);
+        Page7 Page7 = new Page7(driver);
+        Page8 Page8 = new Page8(driver);
+        Page9 Page9 = new Page9(driver);
+        Page10 Page10 = new Page10(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get(url);
     }
@@ -200,53 +203,19 @@ public class AppTest {
 
     public void ShouldGetFuncFivePage() {
 
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
-
-        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        sedentary.click();
-
-        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        EatEavning.click();
-
-        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        One.click();
-
-        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-        cont.click();
-
-        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q51.click();
-
-        WebElement backP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[3]/button"));
-        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-
-        contP5.click();
-        backP5.click();
-
-        WebElement q52 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-        q52.click();
-        contP5.click();
-        backP5.click();
-
-        WebElement q53 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-        q53.click();
-        contP5.click();
-        backP5.click();
-
-        WebElement q54 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-        q54.click();
-        contP5.click();
-        backP5.click();
-
-        q51.click();
-        q53.click();
-        contP5.click();
-        backP5.click();
-
-        q52.click();
-        q54.click();
-        contP5.click();
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Assert.assertEquals("С чем вы сталкиваетесь чаще всего?", Page7.getHeader7());
+        Assert.assertEquals("Переедаю и не могу остановиться", Page7.getQ7_1());
+        Assert.assertEquals("Постоянно хочу сладкое или фастфуд", Page7.getQ7_2());
+        Assert.assertEquals("Не знаю, как правильно сочетать продукты", Page7.getQ7_3());
+        Assert.assertEquals("Нет времени готовить", Page7.getQ7_4());
+        Assert.assertEquals("7/10", Page7.getCount());
 
     }
 
@@ -255,100 +224,67 @@ public class AppTest {
 
     public void ShouldGetTextSixPage() {
 
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
-
-        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        sedentary.click();
-
-        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        EatEavning.click();
-
-        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        One.click();
-
-        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-        cont.click();
-
-        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q51.click();
-
-        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-        contP5.click();
-
-        WebElement HeaderP6 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/h2"));
-        var H6 = HeaderP6.getText().trim();
-        assertEquals("Пробовали ли вы диеты? Если да, то с каким опытом столкнулись?", H6);
-        assertTrue(HeaderP6.isDisplayed());
-
-        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        var Q61 = q61.getText().trim();
-        assertEquals("Я никогда не сидел на диетах", Q61);
-        assertTrue(q61.isDisplayed());
-
-        WebElement q62 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-        var Q62 = q62.getText().trim();
-        assertEquals("Я пробовал диеты, но они не дали результата", Q62);
-        assertTrue(q62.isDisplayed());
-
-        WebElement q63 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-        var Q63 = q63.getText().trim();
-        assertEquals("Диеты помогали, но результат быстро возвращался", Q63);
-        assertTrue(q63.isDisplayed());
-
-        WebElement q64 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-        var Q64 = q64.getText().trim();
-        assertEquals("Я до сих пор пытаюсь соблюдать диету", Q64);
-        assertTrue(q64.isDisplayed());
-
-    }
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Assert.assertEquals("С чем вы сталкиваетесь чаще всего?", Page7.getHeader7());
+        Page7.clickQ7_1();
+        Assert.assertEquals("Решение этих проблем лежит в правильной организации питания и выборе рациона", Page8.getHeader7_1());
+        Page8.clickContinue8();
+        Assert.assertEquals("Чего вы хотите достичь?", Page8.getHeader8());
+        Page8.clickBack7();
+        Page7.clickQ7_2();
+        Assert.assertEquals("Мы покажем, как это сделать", Page8.getHeader7_2());
+        Page8.clickContinue8();
+        Assert.assertEquals("Сбросить лишний вес", Page8.getQ8_1());
+        Page8.clickBack7();
+        Page7.clickQ7_3();
+        Assert.assertEquals("Продолжить", Page8.getContinue8());
+        Page8.clickContinue8();
+        Assert.assertEquals("Улучшить здоровье и самочувствие", Page8.getQ8_2());
+        Assert.assertEquals("Набрать мышечную массу", Page8.getQ8_3());
+        Page8.clickBack7();
+        Page7.clickQ7_4();
+        Page8.clickContinue8();
+        Assert.assertEquals("Научиться правильно питаться для себя и семьи",Page8.getQ8_4());
+        Assert.assertEquals("8/10",Page8.getCount());
+        Page8.clickBack7();
+        Assert.assertEquals("С чем вы сталкиваетесь чаще всего?", Page7.getHeader7());
+         }
 
     @Test
-    @DisplayName("Should get func six  page")
+    @DisplayName("Should get func eight + text Nine page")
 
-    public void ShouldGetFuncSixPage() {
+    public void ShouldGetFuncEightPage() {
 
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
-
-        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        sedentary.click();
-
-        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        EatEavning.click();
-
-        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        One.click();
-
-        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-        cont.click();
-
-        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q51.click();
-
-        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-        contP5.click();
-
-        WebElement backP6 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[3]/button"));
-
-
-        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q61.click();
-        backP6.click();
-
-        WebElement q62 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-
-        q62.click();
-        backP6.click();
-
-        WebElement q63 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-        q63.click();
-        backP6.click();
-
-        WebElement q64 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-        q64.click();
-        backP6.click();
-
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Assert.assertEquals("Чего вы хотите достичь?", Page8.getHeader8());
+        Page8.clickQ8_1();
+        Assert.assertEquals("Как вы оцениваете свои знания о правильном питании?", Page9.getHeader9());
+        Page9.clickBack8();
+        Page8.clickQ8_2();
+        Assert.assertEquals("Ничего не знаю", Page9.getQ9_1());
+        Page9.clickBack8();
+        Page8.clickQ8_3();
+        Assert.assertEquals("Знаю основы, но часто ошибаюсь", Page9.getQ9_2());
+        Page9.clickBack8();
+        Page8.clickQ8_4();
+        Assert.assertEquals("Разбираюсь, но не всегда удается применять на практике", Page9.getQ9_3());
+        Assert.assertEquals("9/10",Page9.getCount());
     }
 
     @Test
@@ -356,72 +292,26 @@ public class AppTest {
 
     public void ShouldGetTextSevenPage() {
 
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
-
-        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        sedentary.click();
-
-        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        EatEavning.click();
-
-        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        One.click();
-
-        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-        cont.click();
-
-        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q51.click();
-
-        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-        contP5.click();
-
-        WebElement backP6 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[3]/button"));
-
-        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q61.click();
-
-        WebElement HeaderP7 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/h2"));
-        var H7 = HeaderP7.getText().trim();
-        assertEquals("С чем вы сталкиваетесь чаще всего?", H7);
-        assertTrue(HeaderP7.isDisplayed());
-
-        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        var Q71 = q71.getText().trim();
-        assertEquals("Переедаю и не могу остановиться", Q71);
-        assertTrue(q71.isDisplayed());
-
-        WebElement q72 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-        var Q72 = q72.getText().trim();
-        assertEquals("Постоянно хочу сладкое или фастфуд", Q72);
-        assertTrue(q72.isDisplayed());
-
-        WebElement q73 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-        var Q73 = q73.getText().trim();
-        assertEquals("Не знаю, как правильно сочетать продукты", Q73);
-        assertTrue(q73.isDisplayed());
-
-        WebElement q74 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-        var Q74 = q74.getText().trim();
-        assertEquals("Нет времени готовить", Q74);
-        assertTrue(q74.isDisplayed());
-
-        q74.click();
-
-        WebElement HeaderP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/h2"));
-        var H8 = HeaderP8.getText().trim();
-        assertEquals("Решение этих проблем лежит в правильной организации питания и выборе рациона", H8);
-        assertTrue(HeaderP8.isDisplayed());
-
-
-        WebElement HeaderP81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/p"));
-        var H81 = HeaderP81.getText().trim();
-        assertEquals("Мы покажем, как это сделать", H81);
-        assertTrue(HeaderP81.isDisplayed());
-
-        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-        contP8.click();
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Assert.assertEquals("Как вы оцениваете свои знания о правильном питании?", Page9.getHeader9());
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.clickBack9();
+        Page9.clickQ9_2();
+        Assert.assertEquals("Продолжить", Page10.getContinue11());
+        Page10.clickBack9();
+        Page9.clickQ9_3();
+        Assert.assertEquals("10/10", Page10.getCount());
 
     }
 
@@ -539,59 +429,6 @@ public class AppTest {
         var Q84 = q84.getText().trim();
         assertEquals("Научиться правильно питаться для себя и семьи", Q84);
         assertTrue(q84.isDisplayed());
-    }
-
-    @Test
-    @DisplayName("Should get func eight  page")
-
-    public void ShouldGetFuncEightPage() {
-
-        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-        btnMale.click();
-
-        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        sedentary.click();
-
-        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        EatEavning.click();
-
-        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        One.click();
-
-        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-        cont.click();
-
-        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q51.click();
-
-        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-        contP5.click();
-
-        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q61.click();
-
-        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q71.click();
-
-        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-        contP8.click();
-
-        WebElement q81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-        q81.click();
-        WebElement backP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[3]/button"));
-        backP8.click();
-
-        WebElement q82 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-        q82.click();
-        backP8.click();
-
-        WebElement q83 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-        q83.click();
-        backP8.click();
-
-        WebElement q84 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-        q84.click();
-        backP8.click();
     }
 
     @Test

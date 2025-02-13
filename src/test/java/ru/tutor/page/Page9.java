@@ -1,36 +1,76 @@
-import org.openqa.selenium.By;
-//import org.openqa.selenium.WebElement;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
-//
-////package ru.tutor.page;
-//
-////
-//public void ShouldGetFuncSevenPage() {
-//
-//    WebElement HeaderP9 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/h2"));
-//    var H9 = HeaderP9.getText().trim();
-//    assertEquals("Как вы оцениваете свои знания о правильном питании?", H9);
-//    assertTrue(HeaderP9.isDisplayed());
-//
-//    WebElement q91 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//    var Q91 = q91.getText().trim();
-//    assertEquals("Ничего не знаю", Q91);
-//    assertTrue(q91.isDisplayed());
-//
-//    WebElement q92 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-//    var Q92 = q92.getText().trim();
-//    assertEquals("Знаю основы, но часто ошибаюсь", Q92);
-//    assertTrue(q92.isDisplayed());
-//
-//    WebElement q93 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-//    var Q93 = q93.getText().trim();
-//    assertEquals("Разбираюсь, но не всегда удается применять на практике", Q93);
-//    assertTrue(q93.isDisplayed());
-//
+package ru.tutor.page;
 
-//    WebElement backP9 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[12]/div/div/div[2]/div[1]/div[3]/button"));
-//    backP9.click();
+import com.github.dockerjava.api.model.Driver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+//import static com.codeborne.selenide.Selenide.*;
+//import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-//}
+public class Page9 extends Driver {
+
+    public Page9(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/h2")
+    private static WebElement Header9;
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[3]/button")
+    private static WebElement Back8;
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[1]/label")
+    private static WebElement Q9_1;
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[2]/label")
+    private static WebElement Q9_2;
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[3]/label")
+    private static WebElement Q9_3;
+
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[3]/div/div")
+    private static WebElement Count;
+
+    public static Object getHeader9() {
+        Header9.getText().trim();
+        return "Как вы оцениваете свои знания о правильном питании?";
+    }
+
+    public static Object getQ9_1() {
+        Q9_1.getText().trim();
+        return "Ничего не знаю";
+    }
+
+    public static Object getQ9_2() {
+        Q9_2.getText().trim();
+        return "Знаю основы, но часто ошибаюсь";
+    }
+
+    public static Object getQ9_3() {
+        Q9_3.getText().trim();
+        return "Разбираюсь, но не всегда удается применять на практике";
+    }
+
+    public static Object getCount() {
+        Count.getText().trim();
+        return "9/10";
+    }
+
+    public static void clickBack8() {
+        Back8.click();
+    }
+
+        public static void clickQ9_1() {
+        Q9_1.click();
+    }
+
+        public static void clickQ9_2() {
+        Q9_2.click();
+    }
+
+        public static void clickQ9_3() {
+        Q9_3.click();
+    }
+
+}

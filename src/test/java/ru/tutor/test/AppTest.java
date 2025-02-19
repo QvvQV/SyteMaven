@@ -476,4 +476,34 @@ public class AppTest {
         Assert.assertEquals(false, Page10.chechDisBtn());
         Page10.clickContinue11();
     }
+
+            @Test
+    @DisplayName("Should get funct Loader page")
+    public void ShouldFunctLoaderPage() throws InterruptedException {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Page10.send18KeysQ10_2();
+        Page10.send120KeysQ10_1();
+        Page10.send40KeysQ10_3();
+        Page10.send400KeysQ10_4();
+        Page10.clickContinue11();
+        Loader.setLoad();
+        Assert.assertEquals("Поздравляем!", Loader.getHeader14());
+        Assert.assertEquals("Вы на шаг ближе ", Loader.getHeader14_1());
+        Assert.assertEquals("к идеальному телу!", Loader.getHeader14_2());
+        Assert.assertEquals("Ваши рационы питания готовы", Loader.getHeader14_3());
+        Assert.assertEquals("Резюме", Loader.getRezume());
+        Assert.assertEquals("вашего профиля", Loader.getProfile());
+//        System.out.println(Loader.setLoad());
+    }
 }

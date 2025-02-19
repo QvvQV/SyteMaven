@@ -25,8 +25,14 @@ public class Page10 extends Driver {
     @FindBy(tagName = "button")
     private static WebElement Btn;
 
+    @FindBy(tagName = "input")
+    private static WebElement Color;
+
     @FindBy(id = "q10__2")
     private static WebElement Q10_2;
+
+    @FindBy(xpath = "//*[@id=\"q10__2\"]")
+    private static WebElement GrQ10_2;
 
     @FindBy(id = "q10__1")
     private static WebElement Q10_1;
@@ -67,9 +73,61 @@ public class Page10 extends Driver {
         return "Возраст";
     }
 
+    public static void send17KeysQ10_2() {
+        Q10_2.sendKeys("17");
+    }
+
+    public static void send100KeysQ10_2() {
+        Q10_2.sendKeys("100");
+    }
+
+    public static void send18KeysQ10_2() {
+        Q10_2.sendKeys("18");
+    }
+
+    public static void send99KeysQ10_2() {
+        Q10_2.sendKeys("99");
+    }
+
+    // Color Green: "rgba(0, 128, 0, 1)"
+    // Color Red: "rgba(255, 0, 0, 1)"
+    public static Object getItemQ10_2() {
+        Q10_2.getAttribute("style");
+        return Q10_2.getCssValue("color");
+    }
+
+    public static void ClearQ10_2() {
+        Q10_2.clear();
+    }
+
     public static Object getQ10_1() {
         Q10_1.getText().trim();
         return "Рост";
+    }
+
+    public static void send119KeysQ10_1() {
+        Q10_1.sendKeys("119");
+    }
+
+    public static void send251KeysQ10_1() {
+        Q10_1.sendKeys("251");
+    }
+
+    public static void send120KeysQ10_1() {
+        Q10_1.sendKeys("120");
+    }
+
+    public static void send250KeysQ10_1() {
+        Q10_1.sendKeys("250");
+    }
+
+    public static Object getItemQ10_1() {
+        Q10_1.getAttribute("style");
+        return Q10_1.getCssValue("color");
+    }
+
+    public static void ClearQ10_1() {
+        Q10_1.clear();
     }
 
     public static Object getQ10_3() {
@@ -77,9 +135,59 @@ public class Page10 extends Driver {
         return "Вес";
     }
 
+    public static void send39KeysQ10_3() {
+        Q10_3.sendKeys("39");
+    }
+
+    public static void send401KeysQ10_3() {
+        Q10_3.sendKeys("401");
+    }
+
+    public static void send40KeysQ10_3() {
+        Q10_3.sendKeys("40");
+    }
+
+    public static void send400KeysQ10_3() {
+        Q10_3.sendKeys("400");
+    }
+
+    public static Object getItemQ10_3() {
+        Q10_3.getAttribute("style");
+        return Q10_3.getCssValue("color");
+    }
+
+    public static void ClearQ10_3() {
+        Q10_3.clear();
+    }
+
     public static Object getQ10_4() {
         Q10_4.getText().trim();
         return "Желаемый вес";
+    }
+
+    public static void send39KeysQ10_4() {
+        Q10_4.sendKeys("39");
+    }
+
+    public static void send401KeysQ10_4() {
+        Q10_4.sendKeys("401");
+    }
+
+    public static void send40KeysQ10_4() {
+        Q10_4.sendKeys("40");
+    }
+
+    public static void send400KeysQ10_4() {
+        Q10_4.sendKeys("400");
+    }
+
+    public static Object getItemQ10_4() {
+        Q10_4.getAttribute("style");
+        return Q10_4.getCssValue("color");
+    }
+
+    public static void ClearQ10_4() {
+        Q10_4.clear();
     }
 
     public static Object getCount() {
@@ -91,12 +199,14 @@ public class Page10 extends Driver {
         Back9.click();
     }
 
-//    public static void clickQ6_1() {
-//        Q6_1.click();
-//    }
-//
-//    public static void clickQ6_2() {
-//        Q6_2.click();
+//    public static String ifSendKeysQ10_2False17() {
+//        int i = 17;
+
+    /// /       int i = sendKeysQ10_2();
+//        if (18 <= i & i <= 99) {
+//            return "green";
+//        }
+//        return "red";
 //    }
 //
 //    public static void clickQ6_3() {
@@ -106,7 +216,6 @@ public class Page10 extends Driver {
 //    public static void clickQ6_4() {
 //        Q6_4.click();
 //    }
-
     public static void clickContinue11() {
         disableBtn.click();
     }
@@ -116,9 +225,14 @@ public class Page10 extends Driver {
         return Btn;
     }
 
-    public static boolean chechDisBtn(){
-        if(Objects.equals(chechBtn(), "disabled")){
+    public static boolean chechDisBtn() {
+        if (Objects.equals(chechBtn(), "disabled")) {
             return false;
         } else return disableBtn.isEnabled();
     }
+
+//    public static void time() throws InterruptedException {
+//     Q10_2(Condition.visible, Duration.ofSeconds(15));
+//    }
+
 }

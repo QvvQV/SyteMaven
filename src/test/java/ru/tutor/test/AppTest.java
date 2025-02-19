@@ -6,16 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.tutor.page.*;
 
 import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //import static org.graalvm.compiler.nodeinfo.InputType.Condition;
 //import static com.codeborne.selenide.Selenide.*;
@@ -39,6 +34,7 @@ public class AppTest {
         Page8 Page8 = new Page8(driver);
         Page9 Page9 = new Page9(driver);
         Page10 Page10 = new Page10(driver);
+        Loader Loader = new Loader(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get(url);
     }
@@ -251,11 +247,11 @@ public class AppTest {
         Page8.clickBack7();
         Page7.clickQ7_4();
         Page8.clickContinue8();
-        Assert.assertEquals("Научиться правильно питаться для себя и семьи",Page8.getQ8_4());
-        Assert.assertEquals("8/10",Page8.getCount());
+        Assert.assertEquals("Научиться правильно питаться для себя и семьи", Page8.getQ8_4());
+        Assert.assertEquals("8/10", Page8.getCount());
         Page8.clickBack7();
         Assert.assertEquals("С чем вы сталкиваетесь чаще всего?", Page7.getHeader7());
-         }
+    }
 
     @Test
     @DisplayName("Should get func Eight + text Nine page")
@@ -284,13 +280,13 @@ public class AppTest {
         Page9.clickBack8();
         Page8.clickQ8_4();
         Assert.assertEquals("Разбираюсь, но не всегда удается применять на практике", Page9.getQ9_3());
-        Assert.assertEquals("9/10",Page9.getCount());
+        Assert.assertEquals("9/10", Page9.getCount());
     }
 
     @Test
     @DisplayName("Should get func Nine page + text Ten Page")
 
-    public void ShouldGetFuncNinePage() {
+    public void ShouldGetFuncNinePage() throws InterruptedException {
 
         Page1.clickMale();
         Page2.clickQ2_1();
@@ -318,291 +314,166 @@ public class AppTest {
         Assert.assertEquals("Желаемый вес", Page10.getQ10_4());
         Assert.assertEquals(false, Page10.chechDisBtn());
 
+//        System.out.println(Page10.chechNameColor());
     }
-//
-//    @Test
-//    @DisplayName("Should get func seven  page")
-//
-//    public void ShouldGetFuncSevenPage() {
-//
-//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-//        btnMale.click();
-//
-//        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        sedentary.click();
-//
-//        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        EatEavning.click();
-//
-//        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        One.click();
-//
-//        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-//        cont.click();
-//
-//        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q51.click();
-//
-//        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-//        contP5.click();
-//
-//        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q61.click();
-//
-//        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q71.click();
-//
-//        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-//        contP8.click();
-//
-//        WebElement backP7 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[3]/button"));
-//        backP7.click();
-//
-//        WebElement q72 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-//        q72.click();
-//        contP8.click();
-//        backP7.click();
-//
-//        WebElement q73 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-//        q73.click();
-//        contP8.click();
-//        backP7.click();
-//
-//        WebElement q74 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-//        q74.click();
-//        contP8.click();
-//        backP7.click();
-//
-//    }
-//
-//    @Test
-//    @DisplayName("Should get text eight  page")
-//
-//    public void ShouldGetTextEightPage() {
-//
-//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-//        btnMale.click();
-//
-//        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        sedentary.click();
-//
-//        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        EatEavning.click();
-//
-//        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        One.click();
-//
-//        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-//        cont.click();
-//
-//        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q51.click();
-//
-//        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-//        contP5.click();
-//
-//        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q61.click();
-//
-//        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q71.click();
-//
-//        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-//        contP8.click();
-//
-//        WebElement HeaderP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/h2"));
-//        var H8 = HeaderP8.getText().trim();
-//        assertEquals("Чего вы хотите достичь?", H8);
-//        assertTrue(HeaderP8.isDisplayed());
-//
-//        WebElement q81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        var Q81 = q81.getText().trim();
-//        assertEquals("Сбросить лишний вес", Q81);
-//        assertTrue(q81.isDisplayed());
-//
-//        WebElement q82 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-//        var Q82 = q82.getText().trim();
-//        assertEquals("Улучшить здоровье и самочувствие", Q82);
-//        assertTrue(q82.isDisplayed());
-//
-//        WebElement q83 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-//        var Q83 = q83.getText().trim();
-//        assertEquals("Набрать мышечную массу", Q83);
-//        assertTrue(q83.isDisplayed());
-//
-//        WebElement q84 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[4]/label"));
-//        var Q84 = q84.getText().trim();
-//        assertEquals("Научиться правильно питаться для себя и семьи", Q84);
-//        assertTrue(q84.isDisplayed());
-//    }
-//
-//    @Test
-//    @DisplayName("Should get text nine page")
-//
-//    public void ShouldGetTextNinePage() {
-//
-//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-//        btnMale.click();
-//
-//        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        sedentary.click();
-//
-//        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        EatEavning.click();
-//
-//        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        One.click();
-//
-//        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-//        cont.click();
-//
-//        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q51.click();
-//
-//        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-//        contP5.click();
-//
-//        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q61.click();
-//
-//        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q71.click();
-//
-//        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-//        contP8.click();
-//
-//        WebElement q81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q81.click();
-//
-//        WebElement HeaderP9 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/h2"));
-//        var H9 = HeaderP9.getText().trim();
-//        assertEquals("Как вы оцениваете свои знания о правильном питании?", H9);
-//        assertTrue(HeaderP9.isDisplayed());
-//
-//        WebElement q91 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        var Q91 = q91.getText().trim();
-//        assertEquals("Ничего не знаю", Q91);
-//        assertTrue(q91.isDisplayed());
-//
-//        WebElement q92 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-//        var Q92 = q92.getText().trim();
-//        assertEquals("Знаю основы, но часто ошибаюсь", Q92);
-//        assertTrue(q92.isDisplayed());
-//
-//        WebElement q93 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-//        var Q93 = q93.getText().trim();
-//        assertEquals("Разбираюсь, но не всегда удается применять на практике", Q93);
-//        assertTrue(q93.isDisplayed());
-//    }
-//
-//    @Test
-//    @DisplayName("Should get func nine page")
-//
-//    public void ShouldGetFuncNinePage() {
-//
-//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-//        btnMale.click();
-//
-//        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        sedentary.click();
-//
-//        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        EatEavning.click();
-//
-//        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        One.click();
-//
-//        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-//        cont.click();
-//
-//        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q51.click();
-//
-//        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-//        contP5.click();
-//
-//        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q61.click();
-//
-//        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q71.click();
-//
-//        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-//        contP8.click();
-//
-//        WebElement q81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q81.click();
-//
-//        WebElement q91 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q91.click();
-//
-//        WebElement backP9 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[12]/div/div/div[2]/div[1]/div[3]/button"));
-//        backP9.click();
-//
-//        WebElement q92 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[2]/label"));
-//        q92.click();
-//        backP9.click();
-//
-//        WebElement q93 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[3]/label"));
-//        q93.click();
-//        backP9.click();
-//
-//    }
-//
-//    //    @Test
-//    @DisplayName("Should get func ten page")
-//
-//    public void ShouldGetFuncTenPage() {
-//
-//        WebElement btnMale = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[1]/div/div/div[1]/div[2]/div[2]/div[2]/label"));
-//        btnMale.click();
-//
-//        WebElement sedentary = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[2]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        sedentary.click();
-//
-//        WebElement EatEavning = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[3]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        EatEavning.click();
-//
-//        WebElement One = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[4]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        One.click();
-//
-//        WebElement cont = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[5]/div/div/div/button/span"));
-//        cont.click();
-//
-//        WebElement q51 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q51.click();
-//
-//        WebElement contP5 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[6]/div/div/div[2]/div[1]/div[3]/button[2]"));
-//        contP5.click();
-//
-//        WebElement q61 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[7]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q61.click();
-//
-//        WebElement q71 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[8]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q71.click();
-//
-//        WebElement contP8 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[9]/div/div/div/button"));
-//        contP8.click();
-//
-//        WebElement q81 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[10]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q81.click();
-//
-//        WebElement q91 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[11]/div/div/div[2]/div[1]/div[2]/div[1]/label"));
-//        q91.click();
-//
-//        WebElement HeaderP10 = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/section[12]/div/div/div[2]/div[1]/div[2]/h2"));
-//        var H10 = HeaderP10.getText().trim();
-//        assertEquals("Укажите ваши параметры", H10);
-//        assertTrue(HeaderP10.isDisplayed());
-//
-//
-//        WebElement Age = driver.findElement(By.tagName("Возраст"));
-//        var age = Age.getText().trim();
-//        assertEquals("Возраст", age);
-//        assertTrue((Age.isDisplayed()));
-////        driver.findElement(By.id("q10__2")).sendKeys("45");
-////        q101.click();
-////        q101.getText();
-//
-//    }
+
+    @Test
+    @DisplayName("Should get funct ten page Disable1")
+    public void ShouldFunctTenPageDisable1() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send17KeysQ10_2();
+//        System.out.println(Page10.getItemQ10_2());
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_2());
+        Page10.send119KeysQ10_1();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_1());
+        Page10.send39KeysQ10_3();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_3());
+        Page10.send39KeysQ10_4();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals(false, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
+
+    @Test
+    @DisplayName("Should get funct ten page Disable2")
+    public void ShouldFunctTenPageDisable2() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send100KeysQ10_2();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_2());
+        Page10.send251KeysQ10_1();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_1());
+        Page10.send401KeysQ10_3();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_3());
+        Page10.send401KeysQ10_4();
+        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals(false, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
+
+    @Test
+    @DisplayName("Should get funct ten page Ebale1")
+    public void ShouldFunctTenPageEbale1() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send18KeysQ10_2();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_2());
+        Page10.send120KeysQ10_1();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_1());
+        Page10.send40KeysQ10_3();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_3());
+        Page10.send40KeysQ10_4();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals(true, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
+
+    @Test
+    @DisplayName("Should get funct ten page Ebale2")
+    public void ShouldFunctTenPageEbale2() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send99KeysQ10_2();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_2());
+        Page10.send250KeysQ10_1();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_1());
+        Page10.send400KeysQ10_3();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_3());
+        Page10.send400KeysQ10_4();
+        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals(true, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
+    @Test
+    @DisplayName("Should get funct ten page Ebale1+Dis1")
+    public void ShouldFunctTenPageEbale1Dis1() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send18KeysQ10_2();
+        Page10.send120KeysQ10_1();
+        Page10.send39KeysQ10_3();
+        Page10.send39KeysQ10_4();
+        Assert.assertEquals(false, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
+
+        @Test
+    @DisplayName("Should get funct ten page Ebale1+Dis1")
+    public void ShouldFunctTenPageEbale2Dis2() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
+        Page10.send100KeysQ10_2();
+        Page10.send251KeysQ10_1();
+        Page10.send40KeysQ10_3();
+        Page10.send400KeysQ10_4();
+        Assert.assertEquals(false, Page10.chechDisBtn());
+        Page10.clickContinue11();
+    }
 }

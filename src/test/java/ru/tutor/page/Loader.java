@@ -1,12 +1,11 @@
 package ru.tutor.page;
 
 import com.github.dockerjava.api.model.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.time.Duration;
 //import static com.codeborne.selenide.Selenide.*;
 //import static com.codeborne.selenide.Selenide.closeWebDriver;
 
@@ -67,7 +66,7 @@ public class Loader extends Driver {
     @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[3]/div[1]/div/h3")
     private static WebElement MetAge;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[3]/div[2]/div[1]/p/b/text")
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[3]/div[2]/div[1]/p/b")
     private static WebElement met;
 
     @FindBy(id = "ageMeta")
@@ -82,75 +81,26 @@ public class Loader extends Driver {
     @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[4]/div[1]/div/h3")
     private static WebElement Water;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[1]/div/h3")
-    private static WebElement NormKal;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[5]/p")
-    private static WebElement kkal;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[6]/div[1]/div/h3")
-    private static WebElement Zone;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[6]/div[3]/div[1]/p")
-    private static WebElement face;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[6]/div[3]/div[3]/p")
-    private static WebElement stomach;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[6]/div[3]/div[4]/p")
-    private static WebElement leg;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[6]/div[3]/div[2]/p")
-    private static WebElement arms;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[6]/h2")
-    private static WebElement numberKkal;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[6]/div[2]/div[1]/p[1]")
-    private static WebElement zeroKkal;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[6]/div[2]/div[1]/p[2]")
-    private static WebElement nameZero;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[6]/div[2]/div[2]/p[1]")
-    private static WebElement fiveThousendKkal;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[5]/div[6]/div[2]/div[2]/p[2]")
-    private static WebElement nameFive;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[2]/div[1]/div[2]/div[1]")
-    private static WebElement firstLesson;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[2]/div[1]/div[2]/div[2]")
-    private static WebElement vvedRaz;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[2]/div[2]/div[2]/div[1]")
-    private static WebElement secondLesson;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[2]/div[2]/div[2]/div[2]")
-    private static WebElement balanse;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[1]/h2[1]/b")
-    private static WebElement Programm;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[1]/h2[1]/text")
-    private static WebElement kurs;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[1]/h2[2]/text[1]")
-    private static WebElement yourRoad;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[1]/h2[2]/text[2]")
-    private static WebElement zdorFood;
-
-    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[2]/div/div/div[2]/a")
-    private static WebElement btnPoluchit;
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/section[1]/div/div/div[2]/div[4]/div[5]/p")
+    private static WebElement numberWater;
 
     @FindBy(id = "load-percentage")
-    private static WebElement load;
+    private static WebElement Load;
 
-    public static void setLoad() {
-        Duration.ofSeconds(2000);
+    @FindBy(xpath = "//*[@id=\"app\"]/main/div/section[14]/section/div/div/div[1]/div[1]")
+    private static WebElement all;
+
+    public static Object getTextLoad() {
+        return Load.getText().trim();
     }
+
+    //    public static Object getLoad(Load){
+//       int Load = Loader.Load;
+//       do {
+//           Load++;
+//       } while (Load<50);
+//        return Load;
+//    }
 
     public static Object getHeader14() {
         Header14.getText().trim();
@@ -182,10 +132,88 @@ public class Loader extends Driver {
         return "вашего профиля";
     }
 
-//    public static void setLoad(WebElement load) {
-//        Loader.load = load;
-//        if (load < 100) {
+    public static Object getVashVes() {
+        VashVes.getText().trim();
+        return "Ваш вес";
+    }
 
+    public static Object getOneWeek() {
+        oneWeek.getText().trim();
+        return "1 неделя";
+    }
+
+    public static Object getTwoWeek() {
+        twoWeek.getText().trim();
+        return "2 недели";
+    }
+
+    public static Object getThreeWeek() {
+        threeWeek.getText().trim();
+        return "3 недели";
+    }
+
+    public static Object getFourWeek() {
+        fourWeek.getText().trim();
+        return "4 недели";
+    }
+
+    public static Object getVes() {
+        resultVes.getText().trim();
+        return "45 кг";
+    }
+
+    public static Object getIMT() {
+        IMT.getText().trim();
+        return "Ваш ИМТ";
+    }
+
+    public static Object getIMTWeek() {
+        FourWeekIMT.getText().trim();
+        return "через 4 недели, следуя дневнику питания";
+    }
+
+    public static Object getIMTnorm() {
+        NormIMT.getText().trim();
+        return "Норма";
+    }
+
+    public static Object getVesFourWeek() {
+        FourWeekVes.getText().trim();
+        return "через 4 недели, следуя дневнику питания";
+    }
+
+    public static Object getMetAge() {
+        met.getText().trim();
+        return "метаболический";
+    }
+
+    public static Object setMet() {
+        MetAge.getText().trim();
+        return "Ваш метаболический возраст";
+    }
+
+    public static Object getTeorAge() {
+        AgeMeta.getText().trim();
+        return "28 лет";
+    }
+
+    public static Object getFactAge() {
+        ageFact.getText().trim();
+        return "18 лет";
+    }
+
+    public static Object getNumberAge() {
+        fact.getText().trim();
+        return "фактический";
+    }
+
+    public static Object getWater() {
+        Water.getText().trim();
+        return "Рекомендуемое количество воды";
+    }
+
+    public static Object setNumberWater() {
+        numberWater.getText().trim();
+        return "4.09 литра в день";
+    }
 }
-//    }
-//}

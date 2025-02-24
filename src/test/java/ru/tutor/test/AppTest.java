@@ -6,11 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.tutor.page.*;
 
 import java.time.Duration;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 //import static org.graalvm.compiler.nodeinfo.InputType.Condition;
 //import static com.codeborne.selenide.Selenide.*;
@@ -35,6 +39,8 @@ public class AppTest {
         Page9 Page9 = new Page9(driver);
         Page10 Page10 = new Page10(driver);
         Loader Loader = new Loader(driver);
+        Body Body = new Body(driver);
+        Pay Pay = new Pay(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get(url);
     }
@@ -335,13 +341,13 @@ public class AppTest {
         Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
         Page10.send17KeysQ10_2();
 //        System.out.println(Page10.getItemQ10_2());
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_2());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_2());
         Page10.send119KeysQ10_1();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_1());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_1());
         Page10.send39KeysQ10_3();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_3());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_3());
         Page10.send39KeysQ10_4();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_4());
         Assert.assertEquals(false, Page10.chechDisBtn());
         Page10.clickContinue11();
     }
@@ -363,13 +369,13 @@ public class AppTest {
         Page9.clickQ9_1();
         Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
         Page10.send100KeysQ10_2();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_2());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_2());
         Page10.send251KeysQ10_1();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_1());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_1());
         Page10.send401KeysQ10_3();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_3());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_3());
         Page10.send401KeysQ10_4();
-        Assert.assertEquals("rgba(255, 0, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals("rgba(255, 0, 0, 1)", Page10.getItemQ10_4());
         Assert.assertEquals(false, Page10.chechDisBtn());
         Page10.clickContinue11();
     }
@@ -391,13 +397,13 @@ public class AppTest {
         Page9.clickQ9_1();
         Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
         Page10.send18KeysQ10_2();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_2());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_2());
         Page10.send120KeysQ10_1();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_1());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_1());
         Page10.send40KeysQ10_3();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_3());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_3());
         Page10.send40KeysQ10_4();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_4());
         Assert.assertEquals(true, Page10.chechDisBtn());
         Page10.clickContinue11();
     }
@@ -419,16 +425,17 @@ public class AppTest {
         Page9.clickQ9_1();
         Assert.assertEquals("Укажите ваши параметры", Page10.getHeader10());
         Page10.send99KeysQ10_2();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_2());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_2());
         Page10.send250KeysQ10_1();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_1());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_1());
         Page10.send400KeysQ10_3();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_3());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_3());
         Page10.send400KeysQ10_4();
-        Assert.assertEquals("rgba(0, 128, 0, 1)",Page10.getItemQ10_4());
+        Assert.assertEquals("rgba(0, 128, 0, 1)", Page10.getItemQ10_4());
         Assert.assertEquals(true, Page10.chechDisBtn());
         Page10.clickContinue11();
     }
+
     @Test
     @DisplayName("Should get funct ten page Ebale1+Dis1")
     public void ShouldFunctTenPageEbale1Dis1() {
@@ -453,7 +460,7 @@ public class AppTest {
         Page10.clickContinue11();
     }
 
-        @Test
+    @Test
     @DisplayName("Should get funct ten page Ebale1+Dis1")
     public void ShouldFunctTenPageEbale2Dis2() {
         Page1.clickMale();
@@ -477,9 +484,9 @@ public class AppTest {
         Page10.clickContinue11();
     }
 
-            @Test
+    @Test
     @DisplayName("Should get funct Loader page")
-    public void ShouldFunctLoaderPage() throws InterruptedException {
+    public void ShouldFunctLoaderPage() {
         Page1.clickMale();
         Page2.clickQ2_1();
         Page3.clickQ3_1();
@@ -497,13 +504,81 @@ public class AppTest {
         Page10.send40KeysQ10_3();
         Page10.send400KeysQ10_4();
         Page10.clickContinue11();
-        Loader.setLoad();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7500));
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/main/div/section[14]/section/div/div/div[1]/div[1]/h2")));
+
         Assert.assertEquals("Поздравляем!", Loader.getHeader14());
         Assert.assertEquals("Вы на шаг ближе ", Loader.getHeader14_1());
         Assert.assertEquals("к идеальному телу!", Loader.getHeader14_2());
         Assert.assertEquals("Ваши рационы питания готовы", Loader.getHeader14_3());
         Assert.assertEquals("Резюме", Loader.getRezume());
         Assert.assertEquals("вашего профиля", Loader.getProfile());
+        Assert.assertEquals("Ваш вес", Loader.getVashVes());
+        Assert.assertEquals("через 4 недели, следуя дневнику питания", Loader.getVesFourWeek());
+        Assert.assertEquals("1 неделя", Loader.getOneWeek());
+        Assert.assertEquals("2 недели", Loader.getTwoWeek());
+        Assert.assertEquals("3 недели", Loader.getThreeWeek());
+        Assert.assertEquals("4 недели", Loader.getFourWeek());
+        Assert.assertEquals("45 кг", Loader.getVes());
+        Assert.assertEquals("Ваш ИМТ", Loader.getIMT());
+        Assert.assertEquals("через 4 недели, следуя дневнику питания", Loader.getIMTWeek());
+        Assert.assertEquals("Норма", Loader.getIMTnorm());
+        Assert.assertEquals("Ваш метаболический возраст", Loader.setMet());
+        Assert.assertEquals("метаболический", Loader.getMetAge());
+        Assert.assertEquals("28 лет", Loader.getTeorAge());
+        Assert.assertEquals("фактический", Loader.getNumberAge());
+        Assert.assertEquals("18 лет", Loader.getFactAge());
+        Assert.assertEquals("Рекомендуемое количество воды", Loader.getWater());
+        Assert.assertEquals("4.09 литра в день", Loader.setNumberWater());
 //        System.out.println(Loader.setLoad());
+    }
+
+    @Test
+    @DisplayName("Should get funct Loader page")
+    public void ShouldFunctLoaderPageBody() {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Page10.send18KeysQ10_2();
+        Page10.send120KeysQ10_1();
+        Page10.send40KeysQ10_3();
+        Page10.send400KeysQ10_4();
+        Page10.clickContinue11();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6000));
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/main/div/section[14]/section/div/div/div[1]/div[2]/h3")));
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        Assert.assertEquals("Норма калорий", Body.getNormKal());
+        Assert.assertEquals("1772 ккал", Body.getBalanse());
+        Assert.assertEquals("1772 ккал", Body.getNumberKkal());
+        Assert.assertEquals("0", Body.getZeroKkal());
+        Assert.assertEquals("Калорий", Body.getNameZero());
+        Assert.assertEquals("5000", Body.getFiveThousendKkal());
+        Assert.assertEquals("Калорий", Body.getNameFive());
+        Assert.assertEquals("Зоны похудения", Body.getZone());
+        Assert.assertEquals("Руки", Body.getArms());
+        Assert.assertEquals("Ноги", Body.getLeg());
+        Assert.assertEquals("Живот", Body.getStomach());
+        Assert.assertEquals("Лицо", Body.getFace());
+        Assert.assertEquals("курса", Body.getKurs());
+        Assert.assertEquals("С чего начинается ваш путь", Body.getYourRoad());
+        Assert.assertEquals("к здоровым отношениям с едой?", Body.getZdorFood());
+        Assert.assertEquals("Урок 1", Body.getFirstLesson());
+        Assert.assertEquals("Введение в рацион питания", Body.getVvedRaz());
+        Assert.assertEquals("Урок 2", Body.getSecondLesson());
+        Assert.assertEquals("Получить доступ", Body.getTextBtnPoluchit());
+        Body.clickBtnPoluchit();
+        Assert.assertEquals("Фигура мечты почти ваша! Успейте забрать",Pay.getFigure());
     }
 }

@@ -1,6 +1,7 @@
 package ru.tutor.page;
 
 import com.github.dockerjava.api.model.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +27,7 @@ public class Pay extends Driver {
     @FindBy(xpath = "//*[@id=\"order\"]/div/div/div[2]/div[1]/div[1]/h4")
     private static WebElement oneRubl;
 
-    @FindBy(xpath = "//*[@id=\"bottom\"]/p/text")
+    @FindBy(xpath = "//*[@id=\"bottom\"]/p")
     private static WebElement uslovie;
 
     @FindBy(id = "email")
@@ -38,20 +39,8 @@ public class Pay extends Driver {
     @FindBy(id = "mainFormaSubmitBtn")
     private static WebElement mainBtn;
 
-    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]/text")
+    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]")
     private static WebElement twiceUsl;
-
-    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]/span/text[1]")
-    private static WebElement podtvOznak;
-
-    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]/span/a[1]")
-    private static WebElement oferta;
-
-    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]/span/text[2]")
-    private static WebElement soglasiy;
-
-    @FindBy(xpath = "//*[@id=\"bottom\"]/div[3]/p[2]/span/a[2]")
-    private static WebElement persDan;
 
     public static Object getFigure() {
         figure.getText().trim();
@@ -105,28 +94,12 @@ public class Pay extends Driver {
         mainBtn.click();
     }
 
+    public static void PageUpBtn(){
+        mainBtn.sendKeys(Keys.PAGE_UP);
+    }
+
     public static Object getTwiseUslText() {
         twiceUsl.getText().trim();
-        return "Нажимая кнопку  \"Получить доступ\" ";
-    }
-
-    public static Object getOznakText() {
-        podtvOznak.getText().trim();
-        return "вы подтверждаете ознакомление с";
-    }
-
-    public static Object getOferta() {
-        oferta.getText().trim();
-        return "офертой и тарифами";
-    }
-
-    public static Object getSoglasye() {
-        soglasiy.getText().trim();
-        return ", а также даете согласие на  ";
-    }
-
-    public static Object getPersDan() {
-        persDan.getText().trim();
-        return "обработку персональных данных";
+        return "Нажимая кнопку  \"Получить доступ\" вы подтверждаете ознакомление с офертой и тарифами, а также даете согласие на обработку персональных данных.";
     }
 }

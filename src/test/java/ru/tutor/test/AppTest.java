@@ -14,6 +14,7 @@ import ru.tutor.page.*;
 
 import java.time.Duration;
 
+import static java.lang.Thread.sleep;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 //import static org.graalvm.compiler.nodeinfo.InputType.Condition;
@@ -40,6 +41,7 @@ public class AppTest {
         Page10 Page10 = new Page10(driver);
         Loader Loader = new Loader(driver);
         Body Body = new Body(driver);
+        Komment komment = new Komment(driver);
         Pay Pay = new Pay(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get(url);
@@ -579,6 +581,95 @@ public class AppTest {
         Assert.assertEquals("Урок 2", Body.getSecondLesson());
         Assert.assertEquals("Получить доступ", Body.getTextBtnPoluchit());
         Body.clickBtnPoluchit();
-        Assert.assertEquals("Фигура мечты почти ваша! Успейте забрать",Pay.getFigure());
+        Assert.assertEquals("Фигура мечты почти ваша! Успейте забрать", Pay.getFigure());
+    }
+
+    @Test
+    @DisplayName("Should get funct Loader-Komment page")
+    public void ShouldFunctLoaderKommentPageBody() throws InterruptedException {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Page10.send18KeysQ10_2();
+        Page10.send120KeysQ10_1();
+        Page10.send40KeysQ10_3();
+        Page10.send400KeysQ10_4();
+        Page10.clickContinue11();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6000));
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/main/div/section[14]/section/div/div/div[1]/div[2]/h3")));
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        sleep(1000);
+        Body.PageDownBtn();
+        Body.PageDownBtn();
+        Assert.assertEquals("> 10 000 похудели благодаря рационам питания!", Komment.setNumber());
+        Assert.assertEquals("Мы не хвастаемся. За нас это делают наши пользователи!", Komment.setHvast());
+        Body.PageDownBtn();
+        Assert.assertEquals("Алексей, 27 лет", Komment.getAlex());
+        Assert.assertEquals("Курс изменил мою жизнь! До этого питался как попало, не задумываясь о последствиях. После курса понял, что правильное питание — это основа здоровья и долголетия. Во время обучения я составил рацион, который учитывает мои особенности и потребности. Заметил улучшение самочувствия и повышение энергии.", Komment.getKommitAlex());
+        Assert.assertEquals("Михаил,", Komment.getMichail());
+        Assert.assertEquals("25 лет", Komment.getMichail25());
+        Assert.assertEquals("Курс помог мне осознать важность баланса между белками, жирами и углеводами. Автор научила меня готовить полезные блюда, которые не только вкусны, но и полезны для организма. Вес начал снижаться, улучшилось настроение и общее состояние здоровья.", Komment.getKommitMichail());
+        sleep(1000);
+        Assert.assertEquals("Георгий,", Komment.getGeorg());
+        Assert.assertEquals("53 года", Komment.getGeorg53());
+        Assert.assertEquals("Отличный курс по рационам питания! Помог разобраться в принципах здорового питания и подобрать оптимальный рацион для снижения веса. Автор очень грамотная, объясняет всё доступно. Результатом доволен, вес уходит постепенно, но уверенно.", Komment.getKommitGeorg());
+        Komment.clickBtnCont();
+        Assert.assertEquals("Евгений, 34 года", Komment.getEvgen());
+        Assert.assertEquals("Курс по рационам питания — это инвестиция в своё здоровье! Он помог мне определить причины лишнего веса и разработать стратегию его снижения. Рацион сбалансирован, блюда разнообразные и вкусные. Результаты радуют, вес уходит медленно, но верно.", Komment.getKommitEvgen());
+        Komment.clickBtnBack();
+        Assert.assertEquals("Георгий,", Komment.getGeorg());
+        Komment.clickBtnBack();
+        Assert.assertEquals("Михаил,", Komment.getMichail());
+    }
+
+    @Test
+    @DisplayName("Should get funct Pay page")
+    public void ShouldFunctPay() throws InterruptedException {
+        Page1.clickMale();
+        Page2.clickQ2_1();
+        Page3.clickQ3_1();
+        Page4.clickQ4_1();
+        Page5.clickContinue6();
+        Page5.clickQ6_1();
+        Page5.clickContinue7();
+        Page6.clickQ6_1();
+        Page7.clickQ7_1();
+        Page8.clickContinue8();
+        Page8.clickQ8_1();
+        Page9.clickQ9_1();
+        Page10.send18KeysQ10_2();
+        Page10.send120KeysQ10_1();
+        Page10.send40KeysQ10_3();
+        Page10.send400KeysQ10_4();
+        Page10.clickContinue11();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6000));
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/main/div/section[14]/section/div/div/div[1]/div[2]/h3")));
+        Body.EndBtn();
+        sleep(1000);
+        Pay.PageUpBtn();
+        sleep(2500);
+        Assert.assertEquals("Фигура мечты почти ваша! Успейте забрать", Pay.getFigure());
+        Assert.assertEquals("рационы питания по акции!", Pay.getAkchia());
+        Assert.assertEquals("Только сейчас: доступ к курсу", Pay.getDostup());
+        Assert.assertEquals("Всего за 1 ₽*", Pay.getOneRubl());
+        Assert.assertEquals("*Первые 7 дней, далее 399₽ или 99₽ раз в 30 дней или в зависимости от условий. Отмена в любой момент.", Pay.getUsl());
+        Assert.assertEquals("Получить доступ", Pay.getBtnText());
+        Assert.assertEquals("none",Pay.getErrorDisplay());
+        Pay.clickMainBtn();
+        Assert.assertEquals("Укажите корректный email", Pay.getErrorText());
+        Assert.assertEquals("Нажимая кнопку  \"Получить доступ\" вы подтверждаете ознакомление с офертой и тарифами, а также даете согласие на обработку персональных данных.", Pay.getTwiseUslText());
+        Pay.setEmailValid();
+        Pay.clickMainBtn();
     }
 }

@@ -184,6 +184,10 @@ public class Body extends Driver {
         btnPoluchit.sendKeys(Keys.PAGE_DOWN);
     }
 
+    public static void EndBtn(){
+        btnPoluchit.sendKeys(Keys.END);
+    }
+
     public static void clickBtnPoluchit() {
         btnPoluchit.click();
     }
